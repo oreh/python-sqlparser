@@ -6,6 +6,7 @@ https://github.com/pypa/sampleproject
 """
 
 # Always prefer setuptools over distutils
+from __future__ import print_function
 from setuptools import setup, find_packages, Extension
 # To use a consistent encoding
 from codecs import open
@@ -43,12 +44,12 @@ def download_library():
         if ARCH == '64':
             url = "http://www.sqlparser.com/dl/gsqlparser_c_linux64_trial_0_3_8.tar.gz"
 
-    print "Downloading library from '%s'..." % url
+    print("Downloading library from '%s'..." % url)
 
     urllib.urlretrieve(url, file_name)
 
-    print "Done!"
-    print "Extracting archive..."
+    print("Done!")
+    print("Extracting archive...")
 
     if os.name == "nt":
         import zipfile
@@ -61,7 +62,7 @@ def download_library():
         archive = tarfile.open(file_name)
         archive.extractall(SQLPARSER_DIR)
 
-    print "Done!"
+    print("Done!")
 
 
 if not os.path.isdir(SQLPARSER_DIR):
